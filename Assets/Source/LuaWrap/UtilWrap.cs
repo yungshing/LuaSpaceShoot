@@ -1,0 +1,192 @@
+﻿using System;
+using UnityEngine;
+using LuaInterface;
+
+public class UtilWrap
+{
+	public static void Register(IntPtr L)
+	{
+		LuaMethod[] regs = new LuaMethod[]
+		{
+			new LuaMethod("LuaPath", LuaPath),
+			new LuaMethod("AppContentPath", AppContentPath),
+			new LuaMethod("Log", Log),
+			new LuaMethod("LogWarning", LogWarning),
+			new LuaMethod("LogError", LogError),
+			new LuaMethod("CallMethod", CallMethod),
+			new LuaMethod("LoadPrefab", LoadPrefab),
+			new LuaMethod("LoadAsset", LoadAsset),
+			new LuaMethod("md5", md5),
+			new LuaMethod("md5file", md5file),
+			new LuaMethod("ClearMemory", ClearMemory),
+			new LuaMethod("New", _CreateUtil),
+			new LuaMethod("GetClassType", GetClassType),
+		};
+
+		LuaField[] fields = new LuaField[]
+		{
+			new LuaField("DataPath", get_DataPath, null),
+		};
+
+		LuaScriptMgr.RegisterLib(L, "Util", typeof(Util), regs, fields, typeof(object));
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int _CreateUtil(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 0)
+		{
+			Util obj = new Util();
+			LuaScriptMgr.PushObject(L, obj);
+			return 1;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: Util.New");
+		}
+
+		return 0;
+	}
+
+	static Type classType = typeof(Util);
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetClassType(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, classType);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DataPath(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, Util.DataPath);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LuaPath(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 0)
+		{
+			string o = Util.LuaPath();
+			LuaScriptMgr.Push(L, o);
+			return 1;
+		}
+		else if (count == 1)
+		{
+			string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+			string o = Util.LuaPath(arg0);
+			LuaScriptMgr.Push(L, o);
+			return 1;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: Util.LuaPath");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AppContentPath(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 0);
+		string o = Util.AppContentPath();
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Log(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		Util.Log(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogWarning(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		Util.LogWarning(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogError(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		Util.LogError(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CallMethod(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
+		object[] objs2 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
+		object[] o = Util.CallMethod(arg0,arg1,objs2);
+		LuaScriptMgr.PushArray(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadPrefab(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		GameObject o = Util.LoadPrefab(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadAsset(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		AssetBundle arg0 = (AssetBundle)LuaScriptMgr.GetUnityObject(L, 1, typeof(AssetBundle));
+		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
+		GameObject o = Util.LoadAsset(arg0,arg1);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int md5(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		string o = Util.md5(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int md5file(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		string o = Util.md5file(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClearMemory(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 0);
+		Util.ClearMemory();
+		return 0;
+	}
+}
+

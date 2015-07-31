@@ -8,4 +8,4 @@ Lua版SpaceShoot__Demo简单说明
 三：改变了一些simpleframeworkd的Editor更能，Game / Generate Assets Bundle 功能：首先需要选中（可以多选）需要生成assetsbundle的预设，然后点击该选项，就会自动将选中的预设打包生成assetsbundle到StreamingAssets目录下。 Game / Copy Lua Files : 会将Assets / Lua 下的所有文件拷贝到StreamingAssets目录下。程序在windows下运行的话会把StreamAssets下的文件解压到 c:/sightp目录，，程序中真正执行的lua脚本也在gaimulxia
 
 
-最后再次声明：本人实习生一枚，请大家所包含，，，，感学@俊哥和其他大神的技术支持！！！
+最后再次声明:本人ulua初学者，代码也十分简陋，请大家所包含，，，，最后感学@俊哥和其他大神的技术支持！！！

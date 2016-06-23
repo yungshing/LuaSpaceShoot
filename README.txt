@@ -1,5 +1,22 @@
+##说明
+我是久光，接触Lua到现在近一年左右，在刚开始接触ulua时写了一些demo，给大家参考，
+但是中间由于毕业和工作的原因一直没时间维护这些小demo，现在顺利毕业，也稍稍有些空余时间，
+后面我会逐步维护几个关于uLua和ToLua的Demo
+
+##demo链接
+1.https://github.com/lixiang-share/LuaSpaceShoot.git  	
+这是一个仿造Unity官方案例做的一个太空射击demo，是一个非常入门级的demo，没有任何基础的可以看看
+2.https://github.com/lixiang-share/LuaTetrisDemo.git
+简单粗暴版俄罗斯方块demo，纯lua实现的俄罗斯方块，不涉及复杂的框架，适合稍有基础的同学学习
+3.https://github.com/lixiang-share/Match3Game.git
+简单的三消demo
+
+
+
 Lua版SpaceShoot__Demo简单说明
-您好，我是久光，邮箱780632213@qq.com，首先必须说明的一点是本案例参考了Unity官方给的案例做的，仅仅适用于刚入门的ulua的爱好者，高手请绕道……由于本人是刚刚进入Unity的世界，设计上很不成熟，希望大家多体谅，如果有问题可以在QQ 群469941220 里提问
+您好，我是久光，邮箱780632213@qq.com，首先必须说明的一点是本案例参考了Unity官方给的案例做的，
+仅仅适用于刚入门的ulua的爱好者，高手请绕道……由于本人是刚刚进入Unity的世界，设计上很不成熟，
+希望大家多体谅，如果有问题可以在QQ 群469941220 里提问
 
 一：运行环境：windows7，unity4.6.5，，否则可能会报错，至于4.6.5以上的版本未进行测试如果出错请重新生成Wrap文件，
 

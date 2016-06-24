@@ -9,8 +9,12 @@
 2.https://github.com/lixiang-share/LuaTetrisDemo.git<br> 
 简单粗暴版俄罗斯方块demo，纯lua实现的俄罗斯方块，不涉及复杂的框架，适合稍有基础的同学学习<br> 
 3.https://github.com/lixiang-share/Match3Game.git<br> 
-简单的三消demo<br> 
-
+简单的三消demo,但是有一定的编码难度，也初步指出使用ulua的一种方式，建议有一定基础的同学学习<br> 
+4.https://github.com/lixiang-share/RPG_JG.git<br>
+这是一个RPG项目，对于我来说可能是这一年工作的总结作品，主要有两部分Server和Client，Server用java做的服务器<br>
+Server设计较为简单，没有处理负载均衡，多线程异步模式，Client使用传统技术，Unity引擎，战斗模块用C#，<br>
+UI模块使用Lua完成,整体还是十分简陋，不过已经可以初步运行，如果感兴趣的人多了，后面会考虑把Server放在远端
+项目还不完善，后期我会继续维护（项目所有资源和策划案使用泰斗破坏神的资源，所有编码均自己设计完成，感谢SiKi老师的资源<br>
 
 
 Lua版SpaceShoot__Demo简单说明
